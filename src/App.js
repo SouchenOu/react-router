@@ -1,9 +1,6 @@
-import logo from './logo.svg';
 
 function App() {
-  return (
-   
-  );
+  return <h1>hello souchen</h1>
 }
 
 export default App;
