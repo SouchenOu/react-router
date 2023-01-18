@@ -58,3 +58,4 @@ the route to define the routes compenent  */
 // and there is (MemoryRouter) it is different than all the other routers and that actually stores everything related to where you have been in history inside of memory and it doesnt rely on the url bar of our browser ( means that if i change the page the url doesnt change)
 //another one is (StaticRouter) [import {staticRouter} from "react-router-dom/server"]this router specificly for writing on the server this router is different to others it doesnt actually allow you to change pages it specifies a single url and you do that by specifying a location so we do just { <Staticrouter location= "/book"> } so after that the page doesnt change  
 // and there is (nativeRouter) we use it if we use ReactNative
+//test
