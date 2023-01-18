@@ -2,6 +2,7 @@ import {Link, Routes, Route} from "react-router-dom"
 import { Home} from "./pages/Home"
 import {BookList} from "./pages/BookList"
 import {Book} from "./pages/Book"
+import {NewBook} from "./pages/NewBook"
 
 
 function App() {
@@ -19,9 +20,6 @@ function App() {
         <Link to="/contact">Contact</Link>
       </li>
       <li>
-        <Link to="/newBook">newBook</Link>
-      </li>
-      <li>
         <Link to="/About">About</Link>
       </li>
     </ul>
@@ -31,6 +29,7 @@ function App() {
 
     <Route path="/books" element= {<BookList/>}/>
     <Route path="/books/:id" element= {<Book/>}/>
+    <Route path="/books/new" element= {<NewBook/>} />
 
   </Routes>
   </>
