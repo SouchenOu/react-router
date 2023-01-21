@@ -1,15 +1,47 @@
-import {Link, Routes, Route} from "react-router-dom"
+import {Link, Routes, Route, useRoutes} from "react-router-dom"
 import { Home} from "./pages/Home"
-import {BookList} from "./pages/BookList"
+ import {BookList} from "./pages/BookList"
 import {Book} from "./pages/Book"
 import {NewBook} from "./pages/NewBook"
 import {NotFound} from "./pages/NotFound"
-import {BookLayout} from "./pages/bookLayout"
+// import {BookLayout} from "./pages/bookLayout"
 
 
 function App() {
+
+  // this is another methode to work
+
+    let element = useRoutes([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "*",
+      element: <NotFound/>,
+    },
+    {
+      path: "/books",
+      element: <BookList/>,
+    },
+    {
+      path: "/books/:id",
+      element: <Book/>,
+    },
+    {
+      path: "/books/new",
+      element: <NewBook/>,
+    },  
+    ]
+  )
+
+  // and this is second method
+  
   return (
   <>
+  <Routes>
+    <Route path="/books" element={<h1>Extra content</h1>}/>
+  </Routes>
   <nav>
     <ul>
       <li>
@@ -26,19 +58,20 @@ function App() {
       </li>
     </ul>
     </nav>
-  <Routes>
-    <Route path="/" element={ <Home/> } />
-    <Route path="/books" element={<BookLayout/>}>
-      <Route index element ={<BookList/>}/> {/**Here its a book it self (means localhost:3000/books) */}
-      <Route path=":id" element={<Book/>}/>
-      <Route path="new" element={<NewBook/>}/>
-    </Route>
+    {element}
+  {/* <Routes> */}
+  { /*<Route path="/" element={ <Home/> } /> */}
+    {/* <Route path="/books" element={<BookLayout/>}> */}
+      {/* <Route index element ={<BookList/>}/> *Here its a book it self (means localhost:3000/books) */}
+      {/* <Route path=":id" element={<Book/>}/> */}
+      {/* <Route path="new" element={<NewBook/>}/> */}
+    {/* </Route> */}
     {/*<Route path="/books" element= {<BookList/>}/>*/}
    {/* <Route path="/books/:id" element= {<Book/>}/>*/}
     {/*<Route path="/books/new" element= {<NewBook/>} />*/}
-    <Route path="*" element = {<NotFound/>}/>
+    {/* <Route path="*" element = {<NotFound/>}/> */}
 
-  </Routes>
+  {/* </Routes> */}
   </>
   )
 }
